@@ -35,7 +35,10 @@ const cart = [
 
 //CODE HERE
 
-const summedPrice = cart.reduce(price + price + price)
+const summedPrice = cart.reduce((acc, el)=>{
+    return acc + el.price
+}, 0)
+console.log(summedPrice)
 
 //////////////////PROBLEM 2////////////////////
 /*  
@@ -54,7 +57,11 @@ const summedPrice = cart.reduce(price + price + price)
 
 //CODE HERE
 
-
+const calcFinalPrice = (total, coupon, tax) =>{
+    let finalTotal = (total - coupon) * (1 + tax)
+    return finalTotal
+}
+console.log(calcFinalPrice(10, 2, .06))
 
 //////////////////PROBLEM 3////////////////////
 /*  
@@ -77,8 +84,11 @@ const summedPrice = cart.reduce(price + price + price)
 */
 
 /*
-    TEXT ANSWER HERE
-
+   cusotomer object will have:
+   firstName: string
+   lastName:string
+   phoneNumber:string
+   Creditcard: number
 */
 
 /*
@@ -87,3 +97,9 @@ const summedPrice = cart.reduce(price + price + price)
 */
 
 //CODE HERE
+const customer = {
+    firstName: 'dillan',
+    lastName:'bob',
+    phoneNumber:'232-234-3422',
+    creditCardNumber:102923736463
+}

@@ -22,9 +22,12 @@
 */
 
 //CODE HERE
- function greetUser (name){
-    return (`welcome back ${name}"`)
+ const  greetUser = (userName) =>  {
+    return (`welcome back ${userName}`)
  }
+ let greet = greetUser("nicole")
+
+//  console.log(greet)
 
 // console.log(greetUser('andrew'))
 //////////////////PROBLEM 2////////////////////
@@ -53,14 +56,14 @@ const deliveryAreaZipCodes = [85205, 85204, 85203, 85213, 85206]
 
 const canWeDeliver = (zipCode) => {
     for (let i = 0; i < deliveryAreaZipCodes.length; i++){
-    if (zipCode === deliveryAreaZipCodes[i]){
+        if (deliveryAreaZipCodes[i] === zipCode){
         console.log('we can deliver')
-    } else if (zipCode !== deliveryAreaZipCodes[i]){
-        console.log ('we cant deliver')
-    }
-}}
+    } 
+    } return console.log('sorry we cant deliver');
+}
 
-console.log(canWeDeliver(85205))
+// canWeDeliver(85205)
+
 /* 
     Problem 2 Continued
 
@@ -79,8 +82,19 @@ console.log(canWeDeliver(85205))
 */
 
 // CODE HERE
+const canWeDeliver2 = (zipcode) => {
+    deliveryAreaZipCodes.forEach(zip => {
+        
+    })
 
+    if(deliveryAreaZipCodes.includes(zipcode)){
+        return console.log('we can deliver')
+    } else{
+        return console.log('sorry we cant deliver');
+    }
+}
 
+// canWeDeliver2(85205)
 //////////////////PROBLEM 3////////////////////
 /* 
     Below is an array of objects that have some
@@ -115,7 +129,7 @@ const deals = [
 */
 
 //CODE HERE
-deals['title'] = '10% off'
+deals[0].title = deals[0].title.replace('15','10') 
 console.log(deals)
 
 
@@ -131,5 +145,6 @@ console.log(deals)
     whitespace in this string, since it seems
     to be displaying wrong on the live site.
 */
-
+deals[1].desc = deals[1].desc.replace('March','April').trim()
+console.log(deals)
 //CODE HERE

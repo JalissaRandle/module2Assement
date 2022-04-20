@@ -35,7 +35,7 @@
 const pizza ={
     name: 'food',
     price: 3,
-    category: 'entre',
+    category: 'entree',
     popularity:5,
     rating:6,
     tags: ['good','food','kids'] 
@@ -51,7 +51,7 @@ const pizza ={
 */
 
 //CODE HERE
-console.log(pizza.popularity)
+console.log(pizza.popularity);
 
 /*
     Second, log the second tag in your pizza's
@@ -61,7 +61,7 @@ console.log(pizza.popularity)
 */
 
 //CODE HERE
-console.log(pizza.price)
+console.log(pizza.tags[1]);
 
 /*
     Third, destructure the price off of the
@@ -81,8 +81,8 @@ console.log(price)
 */
 
 //CODE HERE
-let {popularity} = pizza
-console.log(popularity)
+let {category} = pizza
+console.log(category)
 
 //////////////////PROBLEM 3////////////////////
 /* 
@@ -97,7 +97,34 @@ console.log(popularity)
 */
 
 //CODE HERE
-let foodArr = ['good','food','kids', 'keto', 'healthy'] 
+const foodArr = [
+    {
+        name: 'pep',
+        price: 3,
+        category: 'entree',
+        popularity:5,
+        rating:6,
+        tags: ['good','food','kids', 'meat', 'saucey'] 
+    },
+    {
+        name: 'cheese',
+        price: 5,
+        category: 'entree',
+        popularity:10,
+        rating:7,
+        tags: ['good','food','kids','adults','yummy'] 
+    
+    },
+    {
+        name: 'veggie',
+        price: 10,
+        category: 'entree',
+        popularity:3,
+        rating:4,
+        tags: ['good','food','kids','plant','noMeat'] 
+    
+    }
+]
 
 
 //////////////////PROBLEM 4////////////////////
@@ -113,7 +140,7 @@ let foodArr = ['good','food','kids', 'keto', 'healthy']
 */
 
 //CODE HERE
- const filteredfood = foodArr.filter(foodArr=> foodArr.startsWith('g'))
+ const filteredfood = foodArr.filter(meal=> meal.tags.includes('yummy'))
 
  
 // const filteredFood = foodArr.filter(/* CALLBACK HERE */)
@@ -161,10 +188,15 @@ console.log (filteredfood)
 */
 
 //CODE HERE
-const filterByProperty = {
-    property: 'rating',
-    number: 6,
-    type:'above'
+const filterByProperty = (property, number, type) => {
+    const filterArray = foodArr.filter(meal => {
+        if(type === 'above'){
+            return meal[property] > number
+        }else if(type === 'below'){
+            return meal[property] < number
+        }
+    })
+    return filterArray
 }
 
 
@@ -179,3 +211,4 @@ const filterByProperty = {
 */
 
 //CODE HERE
+console.log(filterByProperty('price', 7, 'below'))
